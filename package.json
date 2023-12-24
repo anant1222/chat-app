@@ -1,0 +1,27 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node /..server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anant1222/chat-app.git"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "Anant Yadav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anant1222/chat-app/issues"
+  },
+  "homepage": "https://github.com/anant1222/chat-app#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  }
+}
