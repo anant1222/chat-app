@@ -15,6 +15,35 @@ app.get('/h',(req,res)=>{
 
 io.on('connection',(socket)=>{
     console.log(`a new user added`)
+
+    socket.emit('newMessage',{
+        from:'Admin',
+        text:"welcome to chat app.",
+        createdAt:new Date().getTime()
+    })
+
+    socket.broadcast.emit('newMessage',{
+        from:'Admin',
+        text:"New user joined",
+        createdAt:new Date().getTime()
+    })
+    
+    socket.on('createMessage',(message)=>{
+        console.log('createMessage', message)
+        io.emit('createMessage',{
+            from : message.from,
+            text : message.text,
+            createdAt: new Date().getTime()
+        })
+    })
+
+    socket.emit('newMessage',{
+        from:"Server",
+        text:"Hello and connected"
+    })
+
+   
+
     socket.on('disconnect',()=>{
         console.log(`user disconnected`)
     })
